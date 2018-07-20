@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Google Circle</title>
+  </head>
+  <body>
+
+    <!-- Header Info -->
+    <div id="header">
+      <h2> Random Seed Generator </h2>
+      <p> <strong>How to use</strong> </p>
+      <p> This program will generate a random number by utilizing multiple active source of entropy from a javascript client, along with a custom signature from the user. 
+        <br/><br/>
+        <strong>Requirement: </strong> User must enable microphone.
+        <br/><br/>
+        Data Length: (10 < n < 10000)
+        <input type="number" value="10" id="dataLength">
+        <br/><br/>
+        <strong>Stream Mode</strong> can be used to generate a stream of random numbers from the sources of entropy. This stream will take in data from all sources and create a merkle tree hash from each data set. Each merkle tree hash will be appended to the previous creating a randomly generated stream of data.
+      <p> Sha256 Merkle Tree Hash Generated:</p>
+      <div id="hash">###</div>
+      <br/>
+    </div>
+
+    <!-- Div for drawing circle -->
+
+    <input type="button" value="stream/stop stream" id="clr" size="23" onclick="streamOn = !streamOn;">
+    <input type="button" value="download" id="clr" size="23" onclick="download()">
+    <input type="button" value="clear" id="clr" size="23" onclick="erase()">
+
+    <br/>
+
+    <canvas id="imgCanvas" width="500px" height="200px" style="border: black solid 2px;padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;">
+    </canvas>
+
+    <br/><br/>
+
+    <!-- Data Columns -->
+    <div class="row">
+      <div class="column" id="limit">
+        <div id="headert">Mouse Positions</div>
+        <table id="pos_box" style="height: 240px;">
+        </table>
+      </div>
+      <div class="column" id="limit">
+        <div id="headert">Random Distributed Points</div>
+        <table id="comp_box" style="height:240px;float: left;">
+        </table>
+      </div>
+      <div class="column">
+        <div id="headert">Microphone Audio</div>
+        <canvas id="audiocanvas"></canvas>
+      </div>
+      <div class="column">
+        <div id="headert">Random Distribution Plot</div>
+        <div class="center_div">
+          <div id="zone"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sha256 Library -->
+    <script src="sha256.js"></script>
+
+    <!-- Data Library -->
+    <script src="data.js"></script>
+
+    <!-- Audio Code -->
+    <script src="audio.js"></script>
+   
+    <!-- CSS Style -->
+    <style>
+    h2{ margin-top: 0px; }
+    table{
+      width: 100%;
+    }
+    td{
+      border:black 1px solid;
+      width: 50% !important;
+    }
+    .center_div{
+      width:auto;
+      height:auto; 
+      margin: 0 auto;
+    }
+    #zone{
+      position: relative;
+    }
+    .point{
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 25px;
+      background: black;
+    }
+    #header{
+      width:100%;
+      text-align: center;
+    }
+    .column {
+      float: left;
+      width: 25%;
+    }
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    #audiocanvas {
+      width: 100%;
+      height: 200px;
+      background-color: #ffffff;
+      margin-top: 20px;
+    }
+    #headert{
+      text-align: center;
+    }
+    #limit {
+      max-height:260px;
+      overflow: scroll;
+    }
+    #clr {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    </style>
+  </body>
+</html>
