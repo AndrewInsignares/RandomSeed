@@ -63,7 +63,7 @@ h = canvas.height;
 //buildRandomNumber() - takes data from entropy sources and builds a generated hash.
 function buildRandomNumber(){
   dataLength = document.getElementById("dataLength").value;
-  if(dataLength == null || dataLength <= 10){
+  if(dataLength == null || dataLength <= 10 || dataLength > 50){
     dataLength = 10;
   }
 

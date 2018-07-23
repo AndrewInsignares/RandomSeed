@@ -10,12 +10,12 @@
     <div id="header">
       <h2> Random Seed Generator </h2>
       <p> <strong>How to use</strong> </p>
-      <p> This program will generate a random number by utilizing multiple active source of entropy from a javascript client, along with a custom signature from the user. 
+      <p>This program will generate a random number by utilizing multiple active sources of entropy from a javascript client along with a digital signature from the user. These values will then be hashed together using a merkle tree to generate a random seed.
         <br/><br/>
         <strong>Requirement: </strong> User must enable microphone.
         <br/><br/>
-        Data Length: (10 < n < 10000)
-        <input type="number" value="10" id="dataLength">
+        Data Length: (10 < n < 50)
+        <input type="number" value="10" id="dataLength"> (how many points of data required to form a seed)
         <br/><br/>
         <strong>Stream Mode</strong> can be used to generate a stream of random numbers from the sources of entropy. This stream will take in data from all sources and create a merkle tree hash from each data set. Each merkle tree hash will be appended to the previous creating a randomly generated stream of data.
       <p> Sha256 Merkle Tree Hash Generated:</p>
