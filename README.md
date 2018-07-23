@@ -9,18 +9,12 @@ Requirements:
 
     Web Browser w/ Javascript Enabled
 
-View on S3:
-
-	1) Visit url in browser: 
-		
-		...createS3 bucket
-
 View Locally:
 
 	1) Clone this git repository locally:
 
 		$: git clone [gitlibrary]
 
-	2) Open file in browser 
+	2) Open index file in browser 
 
-		[current_path]/random-generator
+		[current_path]/index.html
